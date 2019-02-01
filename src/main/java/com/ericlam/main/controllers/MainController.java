@@ -24,12 +24,12 @@ public class MainController {
         return clubRepository.findAll();
     }
 
-    @PostMapping("create")
+    @PostMapping
     public Club createMembers(@RequestBody Club club){
         return clubRepository.save(club);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("{id}")
     public Club updateMembers(@RequestBody Club newclub,@PathVariable int id){
         return clubRepository.findById(id).map(club->{
             club.setFamilyname(newclub.getFamilyname());
@@ -45,7 +45,7 @@ public class MainController {
         });
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("{id}")
     public Map deleteMember(@PathVariable int id){
         boolean success;
         Map<String,Boolean> result = new HashMap<>();

@@ -38,7 +38,7 @@ public class MainController {
             club.setPhone(newclub.getPhone());
             club.setSex(newclub.getSex());
             club.setSport(newclub.getSport());
-            return clubRepository.save(newclub);
+            return clubRepository.save(club);
         }).orElseGet(()->{
             newclub.setId(id);
             return clubRepository.save(newclub);
